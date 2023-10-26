@@ -21,7 +21,7 @@ class BinarySearchTree {
       return this;
     }
 
-    // Otherwise, find the correct spot for the new node.
+    //else instert the node at the right place.
     var current = this.root;
     while (true) {
       if (val < current.val) {
@@ -47,6 +47,25 @@ class BinarySearchTree {
    * Returns the tree. Uses recursion. */
 
   insertRecursively(val) {
+     // Insert at the root if tree is empty
+    if (this.root === null) {
+      this.root = new Node(val);
+      return this;
+    }
+    //else instert the node at the right place
+    if (val < current.val) {
+      if (current.left === null) {
+        current.left = new Node(val);
+        return this;
+      }
+      return this.insertRecursively(val, current.left);
+    } else {
+      if (current.right === null) {
+        current.right = new Node(val);
+        return this;
+      }
+      return this.insertRecursively(val, current.right);
+    }
 
   }
 
